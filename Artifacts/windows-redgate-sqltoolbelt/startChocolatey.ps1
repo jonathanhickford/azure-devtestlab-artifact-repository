@@ -1,4 +1,4 @@
-Param(
+﻿Param(
     # comma- or semicolon-separated list of Chocolatey packages.
     [ValidateNotNullOrEmpty()]
     [Parameter(Mandatory=$True)]
@@ -12,7 +12,7 @@ Function Get-TempPassword()
         [string[]] $sourcedata
     )
 
-    For ($loop=1; $loop –le $length; $loop++) 
+    For ($loop=1; $loop –le $length; $loop++)
     {
         $tempPassword+=($sourcedata | GET-RANDOM)
     }
@@ -45,6 +45,10 @@ $command = $PSScriptRoot + "\ChocolateyPackageInstaller.ps1"
 
 # Run Chocolatey as the artifactInstaller user
 Enable-PSRemoting –Force -SkipNetworkProfileCheck
+
+# Ensure that current process can run scripts. 
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force 
+
 Invoke-Command -FilePath $command -Credential $credential -ComputerName $env:COMPUTERNAME -ArgumentList $packageList
 Disable-PSRemoting -Force
 
