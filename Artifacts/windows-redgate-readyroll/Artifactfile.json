@@ -11,6 +11,6 @@
     "iconUri": "http://www.red-gate.com/assets/INTERIM/assets/products/readyroll/images/readyroll.svg",
     "targetOsType": "Windows",
     "runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass -File startChocolatey.ps1', ' -packageList ', 'readyroll')]"
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass -File startChocolatey.ps1', ' -packageList ', 'ReadyRoll')]"
     }
 }
