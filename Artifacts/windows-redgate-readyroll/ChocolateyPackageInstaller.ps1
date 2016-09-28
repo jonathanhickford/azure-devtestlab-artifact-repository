@@ -216,7 +216,7 @@ function InstallPackages
         WriteLog $("Installing package: " + $package)
 
         # install git via chocolatey
-        choco source add -n=myget -s"https://www.myget.org/F/insane-scissors-archer/api/v3/index.json"
+        choco source add -n=myget -s"https://www.myget.org/F/insane-scissors-archer/api/v2"
         choco install $package --force --yes --acceptlicense --verbose  --source myget| Out-Null 
 
         if ($? -eq $false)
